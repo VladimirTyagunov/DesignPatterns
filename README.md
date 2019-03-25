@@ -1,2 +1,2 @@
 # DesignPatterns
-Master's. First year. DesingPatterns' labs.
+Master's. First year. DesignPatterns' labs.
