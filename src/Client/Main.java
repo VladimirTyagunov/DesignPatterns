@@ -8,8 +8,8 @@ class Main {
     public static void main(String args[]) {
         MatrixStats m;
 
-        IMatrix A1 = new OrdinaryMatrix(4, 5);
-//        IMatrix A1 = new SparseMatrix(4, 5);
+//        IMatrix A1 = new OrdinaryMatrix(4, 5);
+        IMatrix A1 = new SparseMatrix(4, 5);
 
         MatrixInitiator.InitMatrix(A1, 15, 100);
 
@@ -25,10 +25,10 @@ class Main {
 
 
 
-        IMatrix A2 = new MatrixRenumberedRows(A1,1,2);
-        A2.draw(p1);
-        A2.draw(p2);
-
-        System.out.println(A2.getM(1,0));
+//        IMatrix A2 = new MatrixRenumberedRows(A1,1,2);
+//        A2.draw(p1);
+//        A2.draw(p2);
+//
+//        System.out.println(A2.getM(1,0));
     }
 }

@@ -44,11 +44,11 @@ public abstract class Decorator implements IMatrix {
 //        for (int i=0; i<getRowsNumber(); i++){
 //            for (int j=0; j<getColumnsNumber(); j++) {
 //                p.printElementsBorder(i, j);
-//                p.printElement(this, i, j);
+//                p.printElement(i, j);
 //            }
 //        }
 //
-//        p.endPaint(this);
+//        p.endPaint();
 //    }
 
 }
