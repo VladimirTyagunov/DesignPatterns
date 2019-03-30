@@ -34,18 +34,5 @@ abstract class Matrix implements IMatrix {
     }
 
     abstract public void draw(IPainter p);
-//
-//    public void draw(IPainter p){
-//        p.beginPaint(this);
-//
-//        for (int i=0; i<rows; i++){
-//            for (int j=0; j<columns; j++) {
-//                p.printElementsBorder(i, j);
-//                p.printElement(i, j);
-//            }
-//        }
-//
-//        p.endPaint();
-//    }
 
 }

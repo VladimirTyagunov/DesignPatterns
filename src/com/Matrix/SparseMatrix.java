@@ -19,10 +19,9 @@ public class SparseMatrix extends Matrix {
 
         for (int i=0; i<getRowsNumber(); i++){
             for (int j=0; j<getColumnsNumber(); j++) {
-                p.printElementsBorder(i, j);
-                double element = getM(i,j);
-                if (element!=0)
-                p.printElement(i, j);
+                p.printElementsLeftBorder(i, j);
+                if (getM(i,j)!=0) p.printElement(i, j);
+                p.printElementsRightBorder(i, j);
             }
         }
 

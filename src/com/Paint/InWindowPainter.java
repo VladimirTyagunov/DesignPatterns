@@ -37,8 +37,11 @@ public class InWindowPainter implements  IPainter {
             }
     }
 
-    public void printElementsBorder(int i, int j) {
+    public void printElementsLeftBorder(int i, int j) { }
+    public void printElementsRightBorder(int i, int j) { }
 
+    public void printMatrixBorder() {
+//        jPanel.setBorder(BorderFactory.createLineBorder(Color.black, 10));
     }
 
     public void printElement(int i, int j) {

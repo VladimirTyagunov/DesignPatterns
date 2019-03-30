@@ -7,8 +7,11 @@ public class ConsolePainter implements IPainter {
     private IMatrix matrix;
 
     private String border = "_ ";
-    private String border1 = "|";
-    private String border2 = "   ";
+    private String elementBorder1 = "|";
+    private String elementBorder2 = "   ";
+
+    private int borderSize = elementBorder2.length()*2;
+
 
     public void beginPaint(IMatrix m) {
 
@@ -16,31 +19,40 @@ public class ConsolePainter implements IPainter {
 
         System.out.print("Hey, I've just started drawing your matrix in console!\n");
 
+        printMatrixBorder();
+    }
 
-        for (int i = 0; i<(6)*matrix.getColumnsNumber(); i++)
+
+    public void printMatrixBorder(){
+        System.out.print(" ");
+        for (int i = 0; i<(borderSize)*matrix.getColumnsNumber(); i++)
             System.out.print(border);
         System.out.println();
     }
 
 
-    public void printElementsBorder(int i, int j) {
+    public void printElementsLeftBorder(int i, int j) {
         if ((j==0) && (i > 0))
-            System.out.print(border1 +"\n");
+            System.out.println();
 
-        System.out.print(border1 + border2);
+        System.out.print(elementBorder1 + elementBorder2);
+    }
+
+
+    public void printElementsRightBorder(int i, int j) {
+        System.out.print(elementBorder2 + elementBorder1);
     }
 
 
     public void printElement( int i, int j) {
-        System.out.printf("%.2f" + border2, matrix.getM(i, j) );
+        System.out.printf("%.2f", matrix.getM(i, j) );
     }
+
 
     public void endPaint() {
 
-        System.out.println(border1);
-        for (int i = 0; i<(6)*matrix.getColumnsNumber(); i++)
-            System.out.print(border);
         System.out.println();
+        printMatrixBorder();
 
         System.out.print("Hey, I've just finished drawing your matrix in console!\n\n");
     }

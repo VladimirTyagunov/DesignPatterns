@@ -21,8 +21,9 @@ public class OrdinaryMatrix extends Matrix {
 
         for (int i=0; i<getRowsNumber(); i++){
             for (int j=0; j<getColumnsNumber(); j++) {
-                p.printElementsBorder(i, j);
+                p.printElementsLeftBorder(i, j);
                 p.printElement(i, j);
+                p.printElementsRightBorder(i, j);
             }
         }
 

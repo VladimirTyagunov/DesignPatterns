@@ -5,13 +5,13 @@ import com.Matrix.*;
 import com.Paint.*;
 
 class Main {
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         MatrixStats m;
 
 //        IMatrix A1 = new OrdinaryMatrix(4, 5);
         IMatrix A1 = new SparseMatrix(4, 5);
 
-        MatrixInitiator.InitMatrix(A1, 15, 100);
+        MatrixInitiator.InitMatrix(A1, 5, 100);
 
         IPainter p1 = new ConsolePainter();
         IPainter p2 = new InWindowPainter();
