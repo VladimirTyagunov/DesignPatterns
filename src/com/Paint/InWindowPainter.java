@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class InWindowPainter implements  IPainter {
 
-    private IMatrix matrix;
+    private IMatrix m;
 
     private JFrame jframe;
     private JPanel jPanel;
@@ -26,32 +26,30 @@ public class InWindowPainter implements  IPainter {
         jPanel.setLayout(grid);
         jPanel.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 
-        matrix = m;
+        b = new JButton[m.getRowsNumber()][m.getColumnsNumber()];
 
-        b = new JButton[matrix.getRowsNumber()][matrix.getColumnsNumber()];
-
-        for (int i = 0; i < matrix.getRowsNumber();i++)
-            for (int j = 0; j < matrix.getColumnsNumber(); j++) {
+        for (int i = 0; i < m.getRowsNumber();i++)
+            for (int j = 0; j < m.getColumnsNumber(); j++) {
                 b[i][j] = new JButton("");
                 b[i][j].setPreferredSize(new Dimension(75, 75));
             }
     }
 
-    public void printElementsLeftBorder(int i, int j) { }
-    public void printElementsRightBorder(int i, int j) { }
+    public void printElementsLeftBorder(IMatrix m, int i, int j) { }
+    public void printElementsRightBorder(IMatrix m, int i, int j) { }
 
-    public void printMatrixBorder() {
+    public void printMatrixBorder(IMatrix m) {
 //        jPanel.setBorder(BorderFactory.createLineBorder(Color.black, 10));
     }
 
-    public void printElement(int i, int j) {
-        b[i][j].setText(Integer.toString((int)matrix.getM(i,j)));
+    public void printElement(IMatrix m, int i, int j) {
+        b[i][j].setText(Integer.toString((int)m.getM(i,j)));
     }
 
-    public void endPaint() {
+    public void endPaint(IMatrix m) {
 
-        for (int i=0; i< matrix.getRowsNumber();i++)
-            for (int j = 0; j <matrix.getColumnsNumber(); j++)
+        for (int i=0; i< m.getRowsNumber();i++)
+            for (int j = 0; j <m.getColumnsNumber(); j++)
                 jPanel.add(b[i][j]);
 
         jframe.add(jPanel);

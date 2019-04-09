@@ -21,13 +21,13 @@ public class OrdinaryMatrix extends Matrix {
 
         for (int i=0; i<getRowsNumber(); i++){
             for (int j=0; j<getColumnsNumber(); j++) {
-                p.printElementsLeftBorder(i, j);
-                p.printElement(i, j);
-                p.printElementsRightBorder(i, j);
+                p.printElementsLeftBorder(this, i, j);
+                p.printElement(this, i, j);
+                p.printElementsRightBorder(this, i, j);
             }
         }
 
-        p.endPaint();
+        p.endPaint(this);
     }
 
 }

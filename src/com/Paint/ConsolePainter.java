@@ -15,23 +15,21 @@ public class ConsolePainter implements IPainter {
 
     public void beginPaint(IMatrix m) {
 
-        matrix = m;
-
         System.out.print("Hey, I've just started drawing your matrix in console!\n");
 
-        printMatrixBorder();
+        printMatrixBorder(m);
     }
 
 
-    public void printMatrixBorder(){
+    public void printMatrixBorder(IMatrix m){
         System.out.print(" ");
-        for (int i = 0; i<(borderSize)*matrix.getColumnsNumber(); i++)
+        for (int i = 0; i<(borderSize)*m.getColumnsNumber(); i++)
             System.out.print(border);
         System.out.println();
     }
 
 
-    public void printElementsLeftBorder(int i, int j) {
+    public void printElementsLeftBorder(IMatrix m, int i, int j) {
         if ((j==0) && (i > 0))
             System.out.println();
 
@@ -39,20 +37,20 @@ public class ConsolePainter implements IPainter {
     }
 
 
-    public void printElementsRightBorder(int i, int j) {
+    public void printElementsRightBorder(IMatrix m, int i, int j) {
         System.out.print(elementBorder2 + elementBorder1);
     }
 
 
-    public void printElement( int i, int j) {
-        System.out.printf("%.2f", matrix.getM(i, j) );
+    public void printElement(IMatrix m, int i, int j) {
+        System.out.printf("%.2f", m.getM(i, j) );
     }
 
 
-    public void endPaint() {
+    public void endPaint(IMatrix m) {
 
         System.out.println();
-        printMatrixBorder();
+        printMatrixBorder(m);
 
         System.out.print("Hey, I've just finished drawing your matrix in console!\n\n");
     }

@@ -1,8 +1,12 @@
 package Client;
 
-import com.Decorator.MatrixRenumberedRows;
-import com.Matrix.*;
-import com.Paint.*;
+import com.Matrix.IMatrix;
+import com.Matrix.MatrixInitiator;
+import com.Matrix.MatrixStats;
+import com.Matrix.SparseMatrix;
+import com.Paint.ConsolePainter;
+import com.Paint.IPainter;
+import com.Paint.InWindowPainter;
 
 class Main {
     public static void main(String[] args) {
@@ -11,7 +15,7 @@ class Main {
 //        IMatrix A1 = new OrdinaryMatrix(4, 5);
         IMatrix A1 = new SparseMatrix(4, 5);
 
-        MatrixInitiator.InitMatrix(A1, 5, 100);
+        MatrixInitiator.InitMatrix(A1, 19, 100);
 
         IPainter p1 = new ConsolePainter();
         IPainter p2 = new InWindowPainter();

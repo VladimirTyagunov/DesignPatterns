@@ -1,18 +1,18 @@
 package com.Decorator;
 
 import com.Matrix.IMatrix;
+import com.Paint.IPainter;
 
-public class MatrixRenumberedRows extends Decorator{
-
+public class MatrixRenumberedRows implements IMatrix{
+    private IMatrix matrix;
     private int row1, row2;
 
     public MatrixRenumberedRows(IMatrix matrix, int row1, int row2){
-        super(matrix);
+        this.matrix = matrix;
         this.row1 = row1;
         this.row2 = row2;
     }
 
-    @Override
     public double getM(int rowIndex, int columnIndex) {
         int i, j;
         j = columnIndex;
@@ -20,17 +20,28 @@ public class MatrixRenumberedRows extends Decorator{
         if (i==row1) i=row2;
         else if (i==row2) i=row1;
 //        System.out.println("I'm here!\n");
-        return super.getM(i,j);
+        return matrix.getM(i,j);
     }
 
-    @Override
     public void setM(int rowIndex, int columnIndex, double value) {
         int i, j;
         j = columnIndex;
         i = rowIndex;
         if (i==row1) i=row2;
         else if (i==row2) i=row1;
-        super.setM(i,j,value);
+        matrix.setM(i,j,value);
+    }
+
+    public int getRowsNumber() {
+        return matrix.getRowsNumber();
+    }
+
+    public int getColumnsNumber() {
+        return matrix.getColumnsNumber();
+    }
+
+    public void draw(IPainter p) {
+
     }
 
 }
