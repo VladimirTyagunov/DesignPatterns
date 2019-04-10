@@ -6,9 +6,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class InWindowPainter implements  IPainter {
-
-    private IMatrix m;
-
     private JFrame jframe;
     private JPanel jPanel;
     private GridLayout grid;
@@ -35,15 +32,9 @@ public class InWindowPainter implements  IPainter {
             }
     }
 
-    public void printElementsLeftBorder(IMatrix m, int i, int j) { }
-    public void printElementsRightBorder(IMatrix m, int i, int j) { }
 
-    public void printMatrixBorder(IMatrix m) {
-//        jPanel.setBorder(BorderFactory.createLineBorder(Color.black, 10));
-    }
-
-    public void printElement(IMatrix m, int i, int j) {
-        b[i][j].setText(Integer.toString((int)m.getM(i,j)));
+    public void drawCell(IMatrix m, int i, int j) {
+        b[i][j].setText(m.getStringM(i,j));
     }
 
     public void endPaint(IMatrix m) {

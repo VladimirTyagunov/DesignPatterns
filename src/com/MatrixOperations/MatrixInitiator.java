@@ -1,4 +1,6 @@
-package com.Matrix;
+package com.MatrixOperations;
+
+import com.Matrix.IMatrix;
 
 import java.util.Random;
 

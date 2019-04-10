@@ -1,6 +1,6 @@
 package com.Matrix;
 
-import com.Paint.IPainter;
+import com.MatrixOperations.TriFunction;
 import com.Vector.SparseVector;
 import com.Vector.Vector;
 
@@ -14,17 +14,19 @@ public class SparseMatrix extends Matrix {
         return new SparseVector(m);
     }
 
-    public void draw(IPainter p){
-        p.beginPaint(this);
+    @Override
+    public String getStringM(int i, int j) {
+        if (getM(i, j)==0)
+            return "   ";
+        return decimalFormat.format(getM(i,j));
+    }
 
+    @Override
+    public void notAnIterator(TriFunction triFunction){
         for (int i=0; i<getRowsNumber(); i++){
             for (int j=0; j<getColumnsNumber(); j++) {
-                p.printElementsLeftBorder(this, i, j);
-                if (getM(i,j)!=0) p.printElement(this,i, j);
-                p.printElementsRightBorder(this, i, j);
+                triFunction.accept(this, i, j);
             }
         }
-
-        p.endPaint(this);
     }
 }

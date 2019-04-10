@@ -1,6 +1,6 @@
 package com.Matrix;
 
-import com.Paint.IPainter;
+import com.MatrixOperations.TriFunction;
 import com.Vector.OrdinaryVector;
 import com.Vector.Vector;
 
@@ -16,18 +16,16 @@ public class OrdinaryMatrix extends Matrix {
     }
 
     @Override
-    public void draw(IPainter p){
-        p.beginPaint(this);
+    public String getStringM(int i, int j) {
+        return decimalFormat.format(getM(i,j));
+    }
 
-        for (int i=0; i<getRowsNumber(); i++){
-            for (int j=0; j<getColumnsNumber(); j++) {
-                p.printElementsLeftBorder(this, i, j);
-                p.printElement(this, i, j);
-                p.printElementsRightBorder(this, i, j);
-            }
-        }
+    @Override
+    public void notAnIterator(TriFunction triFunction) {
+        for (int i=0; i<getRowsNumber(); i++)
+            for (int j=0; j<getColumnsNumber(); j++)
+                triFunction.accept(this, i, j);
 
-        p.endPaint(this);
     }
 
 }

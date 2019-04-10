@@ -1,4 +1,6 @@
-package com.Matrix;
+package com.MatrixOperations;
+
+import com.Matrix.IMatrix;
 
 public class MatrixStats {
     public final double sum, average, max;
