@@ -1,4 +1,4 @@
-package com.MatrixOperations;
+package com.Matrix;
 
 import java.util.Objects;
 

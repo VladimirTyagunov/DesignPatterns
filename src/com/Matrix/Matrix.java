@@ -1,6 +1,5 @@
 package com.Matrix;
 
-import com.MatrixOperations.TriFunction;
 import com.Paint.IPainter;
 import com.Vector.Vector;
 
@@ -11,8 +10,6 @@ abstract class Matrix implements IMatrix {
     private final int rows, columns;
     protected DecimalFormat decimalFormat = new DecimalFormat("0.00");
 
-
-    TriFunction<IMatrix, Integer, Integer> triFunction;
 
     Matrix(int n, int m) {
         rows = n;
@@ -44,15 +41,16 @@ abstract class Matrix implements IMatrix {
 
     public void draw(IPainter p) {
 
-        triFunction = (matrix, i, j) ->p.drawCell(matrix, i, j);
-
         p.beginPaint(this);
 
-        notAnIterator(triFunction);
+        notAnIterator(p::drawCell);
 
         p.endPaint(this);
     }
 
-    abstract void notAnIterator(TriFunction triFunction);
-
+    public void notAnIterator(TriFunction<IMatrix, Integer, Integer> triFunction){
+        for (int i=0; i<getRowsNumber(); i++)
+            for (int j=0; j<getColumnsNumber(); j++)
+                triFunction.accept(this, i, j);
+    }
 }

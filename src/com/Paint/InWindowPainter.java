@@ -12,7 +12,6 @@ public class InWindowPainter implements  IPainter {
 
     private JButton[][] b;
 
-
     public void beginPaint(IMatrix m) {
         System.out.print("Hey, I've just started drawing your matrix in separate window!\n");
 
@@ -31,7 +30,6 @@ public class InWindowPainter implements  IPainter {
                 b[i][j].setPreferredSize(new Dimension(75, 75));
             }
     }
-
 
     public void drawCell(IMatrix m, int i, int j) {
         b[i][j].setText(m.getStringM(i,j));
@@ -53,7 +51,6 @@ public class InWindowPainter implements  IPainter {
         JFrame jframe = new JFrame("MatrixPanel");
         jframe.setVisible(true);
         jframe.setLocation(550,200);
-//        jframe.setSize(500,500);
         jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         return jframe;
     }

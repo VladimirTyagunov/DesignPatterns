@@ -1,7 +1,6 @@
 package com.MatrixOperations;
 
 import com.Matrix.IMatrix;
-
 import java.util.Random;
 
 public class MatrixInitiator {
@@ -17,7 +16,6 @@ public class MatrixInitiator {
                 colInd = ran.nextInt(A.getColumnsNumber());
                 val = (2 * ran.nextDouble() - 1) * m;
             } while (A.getM(rawInd, colInd) != 0);
-//            System.out.println(rawInd + " " + colInd + " " + val);
             A.setM(rawInd, colInd, val);
         }
     }

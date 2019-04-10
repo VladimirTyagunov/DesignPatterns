@@ -3,7 +3,6 @@ package com.Vector;
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class SparseVector implements Vector {
     private Map<Integer, Double> valuesSparse = new HashMap<>();
     private int dim = 0;
