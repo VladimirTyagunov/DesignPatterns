@@ -71,4 +71,7 @@ public class MatrixRenumberedRows implements IMatrix{
                 triFunction.accept(this, i, j);
     }
 
+    public IMatrix deDeco() {
+        return matrix;
+    }
 }

@@ -58,8 +58,10 @@ public class CompositeMatrix implements IMatrix {
 
         for (IMatrix matrix:matrixList) {
             if ((j < matrix.getColumnsNumber()) && (j>=0)) {
-                if (i < matrix.getRowsNumber())
+                if (i < matrix.getRowsNumber()) {
                     matrix.setM(i, j, value);
+                    return;
+                }
             }
             j-=matrix.getColumnsNumber();
         }

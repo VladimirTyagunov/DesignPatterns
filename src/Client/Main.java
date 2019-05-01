@@ -3,6 +3,7 @@ package Client;
 import com.Matrix.Composite.CompositeMatrix;
 import com.Matrix.Decorator.MatrixRenumberedColumns;
 import com.Matrix.Decorator.MatrixRenumberedRows;
+import com.Matrix.Decorator.MatrixTransp;
 import com.Matrix.IMatrix;
 import com.Matrix.OrdinaryMatrix;
 import com.MatrixOperations.MatrixInitiator;
@@ -40,9 +41,9 @@ class Main {
 //        A3.draw(p1);
 //        A3.draw(p2);
 
-        IMatrix m1 = new SparseMatrix(1, 3);
+        IMatrix m1 = new OrdinaryMatrix(2, 3);
         MatrixInitiator.InitMatrix(m1, 2, 100);
-        IMatrix m2 = new OrdinaryMatrix(4, 2);
+        IMatrix m2 = new SparseMatrix(4, 2);
         MatrixInitiator.InitMatrix(m2, 6, 100);
         IMatrix m3 = new MatrixRenumberedColumns(m1, 0, 1);
 
@@ -56,5 +57,8 @@ class Main {
 
         IMatrix m5 = new MatrixRenumberedRows(m4, 0, 3);
         m5.draw(p2);
+
+        IMatrix m6 = new MatrixTransp(m5);
+        m6.draw(p2);
     }
 }
