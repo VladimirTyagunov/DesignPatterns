@@ -45,11 +45,4 @@ public class MatrixTransp implements IMatrix {
 
         p.endPaint(this);
     }
-
-    @Override
-    public void notAnIterator(TriFunction<IMatrix, Integer, Integer> triFunction){
-        for (int i=0; i<getRowsNumber(); i++)
-            for (int j=0; j<getColumnsNumber(); j++)
-                triFunction.accept(this, i, j);
-    }
 }
