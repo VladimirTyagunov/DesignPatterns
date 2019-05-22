@@ -15,7 +15,7 @@ public class CompositeMatrix implements IMatrix {
         matrixList.add(m);
     }
 
-    public CompositeMatrix(IMatrix ... matrixL) {
+    public CompositeMatrix(ArrayList<IMatrix> matrixL) {
         for (IMatrix m:matrixL)
             addMatrix(m);
     }

@@ -5,6 +5,9 @@ import com.Paint.ConsolePainter;
 import com.Paint.IPainter;
 import com.Paint.InWindowPainter;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 class Main {
 
     static void addOrdMatrix(int matrixNum, int rows, int columns) {
@@ -27,6 +30,11 @@ class Main {
         command.execute();
     }
 
+    static void composeMatrixs(ArrayList<Integer> matrixNums) {
+        ICommand command = new CommandCompose(matrixNums);
+        command.execute();
+    }
+
     static void undoButton(){
         CommandManager CM = CommandManager.getInstance();
         CM.undo();
@@ -43,30 +51,15 @@ class Main {
         setMatrixElement(1,1,1,-19);
         setMatrixElement(1,0,0,-19);
 //        undoButton();
+
+
+        composeMatrixs(new ArrayList<Integer>(Arrays.asList(0, 1)));
+        setMatrixElement(2,3,3,9.5);
+        setMatrixElement(0,3,3,9.5);
+//        undoButton();
+
         printMatrix(1, new ConsolePainter());
-
-
-
-//
-//        ICommand commandPrintMatrix0 = new CommandPrintMatrix(0, new ConsolePainter());
-//        ICommand commandPrintMatrix1 = new CommandPrintMatrix(1, new InWindowPainter());
-//
-//        ICommand command1 = new CommandAddOrdinaryMatrix(0,4,5);
-//        ICommand command2 = new CommandAddSparseMatrix(1,2,3);
-//        ICommand command3 = new CommandSetElement(1,0,0,-1000);
-//        ICommand command4 = new CommandSetElement(0, 1, 3, 999);
-//
-//
-//
-//        commandINIT.execute();
-//        command1.execute();
-//        command2.execute();
-//        command3.execute();
-//        command4.execute();
-//        commandManager.undo();
-//
-//        commandPrintMatrix0.execute();
-//        commandPrintMatrix1.execute();
+        printMatrix(2, new InWindowPainter());
 
     }
 }
